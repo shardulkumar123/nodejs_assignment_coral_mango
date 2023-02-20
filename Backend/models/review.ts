@@ -2,7 +2,7 @@ import { Schema, model, Types } from "mongoose";
 
 interface IData {
   review: string,
-  resturant: any
+  name: string
     
 }
 
@@ -12,11 +12,7 @@ const RestaurantReviewSchema = new Schema<IData>(
       type: String,
       required: true,
     },
-    resturant:[{
-      type: Schema.Types.ObjectId,
-      ref:'Resturant',
-      required: true
-    }]
+    name: String
   },
   { versionKey: false }
 );

@@ -1,6 +1,5 @@
 import dotenv from "dotenv";
 import createServer from "./app";
-// import connectDB from "./database/conn";
 import mongoose from "mongoose";
 
 dotenv.config();
@@ -8,14 +7,13 @@ const port = process.env.PORT || 8000;
 
 const app = createServer();
 
-// require('./database/conn')
-
-
-
 if (process.env.MONGO_DB_URL) {
   try {
-    mongoose.set('strictQuery', true)
-    mongoose.connect(process.env.MONGO_DB_URL as string, (err) => {
+    mongoose.set('strictQuery', false)
+    mongoose.connect(process.env.MONGO_DB_URL as string, {
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+    }as any,(err) => {
       if (err) console.log(err)
       else console.log('Mongo Connection Successful')
     })

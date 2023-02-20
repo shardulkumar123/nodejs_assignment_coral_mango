@@ -53,45 +53,12 @@ const Restaurants = {
 
   AllRestaurant: async (req: Request, res: Response): Promise<any> => {
     try {
-      const getAllRestaurant = await RestaurantData.find();
+      const getAllRestaurant = await RestaurantData.find().populate("total_reviews")
       res.status(200).send({ success: true, getAllRestaurant });
     } catch (error) {
       res.status(404).send({ error: true, message: `Something went wrong ${error}` });
     }
-  },
-
-  // UpdateReview: async (req: Request, res: Response): Promise<any> => {
-  //   const bodyData: IRestaurant = req.body;
-  //   try {
-  //     const checkResturant = await RestaurantData.findOne({
-  //       // name: req.params.name,
-  //       // _id: "63f0a96bc4315dd5578b27e1",
-  //       slug: req.params.slug,
-  //     });
-      
-  //     console.log('checkResturant', checkResturant)
-
-  //     if(checkResturant){
-  //       // const data = RestaurantData()
-  //       // console.log('data', data)
-  //     //  const review = bodyData.total_reviews
-
-  //     // const updateRestReview = await RestaurantData.total_reviews.concat({review})
-  //       // await updateRestReview.save()
-  //       const updateRestReview = await RestaurantData.updateOne(
-  //         {slug: req.params.slug},//for filter
-  //         {$set: {total_reviews : bodyData.total_reviews}},//upadted
-  //         // {upsert: true}
-  //         )
-  //       console.log('updatedRestReview', updateRestReview)
-  //       res.status(200).send({success: true, message:`review added ${updateRestReview}`})
-  //     }
-  //     // const getAllRestaurant = await RestaurantData.findById({});
-  //     // res.status(200).send({ success: true, getAllRestaurant });
-  //   } catch (error) {
-  //     res.status(404).send({ error: true, message: `Something went wrong ${error}` });
-  //   }
-  // }, 
+  }
 };
 
 export default Restaurants;
