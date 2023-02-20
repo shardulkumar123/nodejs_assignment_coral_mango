@@ -1,0 +1,40 @@
+{
+  "compilerOptions":{
+      /*Language and Environment*/
+      "target":"es5",
+
+      /* Modules */
+      // "module":"commonjs",
+      "module":"NodeNext",
+      // "moduleResolution": "NodeNext",
+      //"rootDirs": [],
+
+      /* Interop Constraints */
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+
+      /* Type Checking */
+      "strict": true,
+
+      /* Completeness */
+      "skipLibCheck": true,
+
+
+      "allowJs": true,
+      "declaration": false,
+      "outDir": "built",
+      "maxNodeModuleJsDepth": 10,
+      // "strict": true,
+  
+      "moduleResolution": "NodeNext",
+  
+      "allowSyntheticDefaultImports": true,
+      // "esModuleInterop": true,
+      // "skipLibCheck": true
+
+      /* Emit */
+      //"outFile": "./",
+      //"outDir": "./",
+  }
+}
+  
